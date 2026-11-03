@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#09090d"><meta name="description" content="NIGHTMARE — تماشای گروهی، در تاریکی.">
+<title>NIGHTMARE — Watch Together</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="grain"></div><div class="fog fog-a"></div><div class="fog fog-b"></div>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-mark">N</span><span>NIGHT<span class="red">MARE</span><small>WATCH TOGETHER IN THE DARK</small></span></a>
+  <div class="top-actions"><span class="live-dot"></span><span id="connection">در حال اتصال...</span><button id="langBtn" class="ghost">EN / فا</button></div>
+</header>
+<main>
+<section id="landing" class="landing">
+  <div class="eyebrow"><span></span> THE NIGHT IS BETTER TOGETHER <span></span></div>
+  <h1>تنهایی تماشا نکن.<br><em>در تاریکی کنار هم باش.</em></h1>
+  <p class="intro">یک اتاق بساز، دوستانت را دعوت کن و تجربه‌ی تماشای گروهی را شروع کن.</p>
+  <div class="entry-grid">
+    <article class="panel create-panel">
+      <div class="panel-icon">✦</div><h2>ساخت اتاق جدید</h2><p>تو میزبان این کابوس خواهی بود.</p>
+      <label>نام نمایشی<input id="createName" maxlength="24" placeholder="مثلاً آروین"></label>
+      <label>لینک ویدیو یا صفحه‌ی پخش<input id="videoUrl" type="url" placeholder="https://example.com/video"></label>
+      <button id="createBtn" class="primary">ساخت اتاق <span>↗</span></button>
+    </article>
+    <article class="panel join-panel">
+      <div class="panel-icon">⌁</div><h2>ورود به اتاق</h2><p>کد دعوت را وارد کن و به جمع بپیوند.</p>
+      <label>نام نمایشی<input id="joinName" maxlength="24" placeholder="نام تو"></label>
+      <label>کد اتاق<input id="roomCode" maxlength="12" class="code-input" placeholder="مثلاً A8F20C" dir="ltr"></label>
+      <button id="joinBtn" class="secondary">پیوستن به اتاق <span>↗</span></button>
+    </article>
+  </div>
+  <div class="footnote"><span>☠</span> چراغ‌ها را خاموش کن. دوستانت را خبر کن.</div>
+</section>
+
+<section id="watch" class="watch hidden">
+  <div class="room-head"><div><div class="eyebrow left">PRIVATE SCREENING ROOM</div><h2>اتاق <b id="roomLabel">------</b></h2></div><button id="copyInvite" class="secondary compact">کپی کد دعوت</button></div>
+  <div class="watch-grid">
+    <div class="main-column">
+      <div class="screen-frame"><div class="screen-top"><span>● LIVE ROOM</span><span id="hostLabel">در انتظار میزبان</span></div>
+        <div id="videoStage" class="video-stage"><div class="screen-placeholder"><span class="eye">◉</span><h3>صفحه‌ی نمایش آماده است</h3><p>لینک ویدیوی قابل Embed را در زمان ساخت اتاق وارد کن.</p></div></div>
+      </div>
+      <div class="screen-note">اگر سایت منبع اجازه‌ی نمایش داخل iframe ندهد، ویدیو در این پنجره باز نمی‌شود.</div>
+      <div class="reactions"><span>واکنش سریع</span><button data-emoji="👻">👻</button><button data-emoji="💀">💀</button><button data-emoji="😱">😱</button><button data-emoji="🕯️">🕯️</button><button data-emoji="🖤">🖤</button><button data-emoji="🍿">🍿</button></div>
+    </div>
+    <aside class="side-column">
+      <section class="panel members"><div class="side-title"><h3>حاضرین</h3><span id="memberCount">0 نفر</span></div><div id="memberList" class="member-list"></div></section>
+      <section class="panel chat-panel"><div class="side-title"><h3>گفت‌وگوی شبانه</h3><span class="chat-live">● LIVE</span></div><div id="chatLog" class="chat-log"><div class="system-msg">به اتاق خوش آمدی. مراقب پشت سرت باش...</div></div><form id="chatForm" class="chat-form"><input id="chatInput" maxlength="500" placeholder="پیامی در تاریکی بنویس..." autocomplete="off"><button aria-label="ارسال">➤</button></form></section>
+    </aside>
+  </div>
+  <button id="leaveBtn" class="leave">خروج از اتاق</button>
+</section>
+</main>
+<div id="toast" class="toast"></div><div id="reactionLayer"></div>
+<script src="/socket.io/socket.io.js"></script><script src="/app.js"></script>
+</body></html>
